@@ -34,10 +34,10 @@ public class ClassDao {
   public Class createClasses(Class aClass) throws NotFoundException {
     ClassEntity classEntity = schoolRepository.save(buildClassEntity(aClass));
 
-    aClass.getStudents()
+    /*aClass.getStudents()
         .stream()
         .forEach(student ->
-            studentRepository.save(buildStudentEntity(classEntity, student)));
+            studentRepository.save(buildStudentEntity(classEntity, student)));*/
 
     return buildClass(
         schoolRepository.findById(classEntity.getId()).orElseThrow(NotFoundException::new),
